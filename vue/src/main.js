@@ -8,9 +8,9 @@ import {Button} from 'element-ui'
 Vue.use(Button)
 
 
-// let a = require.context('/components',false,/\.vue/);
+let a = require.context('./components',false,/\.vue/);
+console.log(a.keys())
 // console.log(a)
-console.log(require)
 new Vue({
   render: h => h(App),
 }).$mount('#app')

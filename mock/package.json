@@ -8,6 +8,7 @@
     "mock": "nodemon ./data/server"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.8.3",
     "axios": "^0.19.0",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",

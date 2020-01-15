@@ -11,7 +11,8 @@ import Home from './views/home/Home.vue'
  *
  */
 // console.log(require)
-let a = require.context('../data',false,/db\.js/);
+let a = require.context('./views',true,/\.router\.js/);
+console.log(a)
 
 
 Vue.use(Router);
