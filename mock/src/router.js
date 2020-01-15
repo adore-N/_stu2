@@ -1,8 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './views/home/Home.vue'
+// import home from './views/home/home.router'
+// import detail from  './views/detail/detail.router'
+// import list from './views/list/list.router'
 
-Vue.use(Router)
+/**
+ * webpack 的 require.context(): 可以检测某一个文件夹内匹配的文件
+ * require.context(arg1,arg2,arg3)  arg1: 需要检测的文件夹  arg2: 是否深度检测(包括子文件夹)  arg3: (正则)匹配文件夹的规则
+ *
+ */
+// console.log(require)
+let a = require.context('../data',false,/db\.js/);
+
+
+Vue.use(Router);
+
 
 export default new Router({
   mode: 'history',
@@ -13,13 +26,6 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    {
-      path: '/login',
-      name: 'login',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
-    }
+      // ...home,...detail,...list
   ]
 })

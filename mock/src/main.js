@@ -4,7 +4,9 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+import { Button,Link, } from 'element-ui';
+Vue.use(Button)
+Vue.use(Link)
 new Vue({
   router,
   store,

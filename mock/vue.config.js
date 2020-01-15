@@ -1,5 +1,6 @@
 const path = require("path");
 
+// 代理配置
 module.exports = {
     lintOnSave: false, //禁用eslint
     // productionSourceMap: false,  // 生产环境的 source map
@@ -8,7 +9,7 @@ module.exports = {
     devServer: {
         // index: "login.html", //默认启动serve 打开login页面
         open:false, // 执行npm run serve 字动打开浏览器
-        host:'dev.',
+        host:'dev.58xiaoxiang.top',
         port: 8089,
         proxy:{
             '/v1':{
