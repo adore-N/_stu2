@@ -1,5 +1,5 @@
 
-import Reg from "./reg";
+import Reg from "./Reg";
 export default  [
     {
         path: '/reg',
