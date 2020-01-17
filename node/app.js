@@ -6,8 +6,22 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var regRouter = require('./routes/reg');
+
+let multer = require('multer')
 
 var app = express();
+
+//文件上传的存储位置
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, 'public'));
+  }
+})
+let multerObj = multer({storage});
+// let multerObj = multer({dest:'字符路径'})    //这样的指定方式存储位置太固定了,storage分目录
+app.use(multerObj.any()); //指定上传文件的类型
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/reg',regRouter);
 //  cccc
 
 // catch 404 and forward to error handler

@@ -25,6 +25,11 @@ export default new Router({
             name: 'home',
             component: reslove => require(['@/views/home/Home.vue'],reslove)
         },
+        {
+            path: '/login',
+            name: 'Login',
+            component: reslove => require(['@/views/login/Login.vue'],reslove)
+        },
         ..._router
     ]
 })
