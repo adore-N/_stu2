@@ -7,6 +7,7 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
+import InterfaceTest from "../views/interfaceTest/InterfaceTest";
 
 let ROUTER = require.context('../views', true, /\.router\.js/);
 let _router =[];
@@ -28,7 +29,13 @@ export default new Router({
         {
             path: '/login',
             name: 'Login',
-            component: reslove => require(['@/views/login/Login.vue'],reslove)
+            component: reslove => require(['@/views/login/Login.vue'],reslove),
+            children: [
+                {
+                    path: '/ccc',
+                    component: InterfaceTest
+                }
+            ]
         },
         ..._router
     ]

@@ -12,6 +12,7 @@
                 <el-button>取消</el-button>
             </el-form-item>
         </el-form>
+        <router-view/>
     </div>
 </template>
 

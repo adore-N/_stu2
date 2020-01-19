@@ -1,19 +1,13 @@
 <template>
     <div class="contain_box">
-<!--        <el-row :gutter="30">-->
-<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
-<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
-<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
-<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
-<!--        </el-row>-->
-<!--        <Echarts/>-->
-        <Header/>
-        <div class="contain">
-            <div class="contain_b">
-                <router-view></router-view>
-            </div>
-        </div>
-        <Leftslider/>
+        <el-row :gutter="30">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+        <Echarts/>
+
     </div>
 </template>
 
