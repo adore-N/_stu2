@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-      <Header/>
-      <div class="contain">
-          <div class="contain_b">
-              <router-view></router-view>
-          </div>
-      </div>
-      <Leftslider/>
+     <router-view/>
   </div>
 </template>
 

@@ -1,21 +1,30 @@
 <template>
     <div class="contain_box">
-        <el-row :gutter="30">
-            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        </el-row>
-        <Echarts/>
+<!--        <el-row :gutter="30">-->
+<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
+<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
+<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
+<!--            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>-->
+<!--        </el-row>-->
+<!--        <Echarts/>-->
+        <Header/>
+        <div class="contain">
+            <div class="contain_b">
+                <router-view></router-view>
+            </div>
+        </div>
+        <Leftslider/>
     </div>
 </template>
 
 <script>
     import Echarts from "../../components/Echarts";
+    import Header from "../../components/Header";
+    import Leftslider from "../../components/Leftslider";
     export default {
         name: "Home",
         components:{
-            Echarts
+            Echarts,Header,Leftslider
         }
     }
 </script>
