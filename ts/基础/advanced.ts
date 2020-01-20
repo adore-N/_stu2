@@ -100,3 +100,7 @@ class Cat extends AnimalFather {
 }
 
 let cat = new Cat('Tom');
+
+/**
+ * 类与接口
+ * */
