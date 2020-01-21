@@ -17,7 +17,7 @@ const middlewares = jsonServer.defaults({
 
 // let mock='/mock';//创建根api名 这里的 /mock 如同 后端真实/api
 // let mock='/service';//创建根api名 这里的 /mock 如同 后端真实/api
-let mock='/site';//创建根api名 这里的 /mock 如同 后端真实/api
+let mock='/api';//创建根api名 这里的 /mock 如同 后端真实/api
 
 //路由别名
 const rewriter = jsonServer.rewriter({

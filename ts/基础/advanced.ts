@@ -102,5 +102,65 @@ class Cat extends AnimalFather {
 let cat = new Cat('Tom');
 
 /**
- * 类与接口
+ * 类实现接口
+ * 实现(implements)是面向对象中的一个重要的概念
+ * 一般来讲,一个类只能继承自另一个类,有时候不同类之间可以有一些共有的特性,这时候旧可以把特性提取成接口
+ * 用implements关键字来实现
+ * 一个类可以实现很多个接口
  * */
+interface Alarm {
+    alert();
+}
+interface Light {
+    lightOn();
+}
+class Door {
+
+}
+class SecurityDoor extends Door implements Alarm{
+    alert() {
+        console.log('防盗门');
+    }
+}
+class Car implements Alarm, Light{
+    alert() {
+        console.log('汽车防盗');
+    }
+    lightOn() {
+        console.log('开灯');
+    }
+}
+// 接口继承接口
+interface LightAlarm extends Light{
+    lightOff();
+}
+// 接口继承类
+class Point {
+    x: number;
+    y: number;
+}
+interface Point3D extends Point{
+    z: number;
+}
+let point3D: Point3D = {x: 1, y: 2, z: 3};
+
+/**
+ * 泛型: 指在定义函数,接口,类的时候,不预先指定具体的类型,而在使用的时候在指定类型的一种特性
+ * 例子中在函数名后添加 <T> ,其中 T 用来指代任意输入的类型
+ * */
+function createArray<T>(length: number,value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++){
+        result[i] = value;
+    }
+    return  result;
+}
+createArray<string>(3, 'x');
+
+/**
+ * 多个类型参数
+ * */
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]];
+}
+swap([7, 'seven']);
