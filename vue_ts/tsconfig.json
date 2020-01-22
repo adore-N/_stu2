@@ -1,42 +1,44 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "noImplicitThis": false,
-    "baseUrl": ".",
-    "types": [
+    "target": "esnext",   // 编译输出目标 es 版本
+    "module": "esnext",   // 采用的模块系统
+    "strict": true,       // 以严格模式解析
+    "jsx": "preserve",    //
+    "importHelpers": true,  // 从tslib 导入外部帮助库: 比如__extends, __rest灯
+    "moduleResolution": "node", //如何处理模块
+    "experimentalDecorators": true, //启用装饰器
+    "esModuleInterop": true,     //
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块默认导入
+    "strictPropertyInitialization": false, // 定义一个变量就必须给它一个初始值
+    "allowJs": true,  // 允许编译js 文件
+    "sourceMap": true,  //是否包含可以用于debug的sourceMap
+    "noImplicitThis": false,  // 忽略 this 的类型检查,
+    "baseUrl": "./",  // 解析非相对模块名的基准目录
+    "types": [  // 设置引入的定义文件
       "webpack-env",
       "mocha",
       "chai"
     ],
-    "paths": {
+    "paths": {  //指定特殊模块的路径
       "@/*": [
         "src/*"
       ]
     },
-    "lib": [
+    "lib": [  //编译过程中需要引入的库文件的列表
       "esnext",
       "dom",
       "dom.iterable",
       "scripthost"
     ]
   },
-  "include": [
+  "include": [  //ts 管理的文件
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": [
+  "exclude": [  // ts 排除的文件
     "node_modules"
   ]
 }

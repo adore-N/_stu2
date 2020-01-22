@@ -11,7 +11,6 @@ _ROUTER.keys().forEach((key: any): any => {
 });
 
 
-
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -23,14 +22,19 @@ export default new Router({
     {
       path: '/index',
       name: 'index',
+
       component: () => import('@/views/index/Index.vue'),
       children: _router
-
     },
     {
       path: '/login',
       name: 'Login',
       component: () => import(/* webpackChunkName: "articles" */'../views/login/Login.vue'),
     },
-  ],
+    {
+      path: '/reg',
+      name: 'Reg',
+      component: () => import(/* webpackChunkName: "articles" */'../views/reg/Reg.vue'),
+    }
+  ]
 });

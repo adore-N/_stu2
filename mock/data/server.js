@@ -30,8 +30,6 @@ const rewriter = jsonServer.rewriter({
 
   // "/stock/stockmanage/stocklist" :'/stock',
 
-
-
   // 司机列表
   '/v1/driver': '/driver',
   //入库列表 待入库
@@ -42,14 +40,6 @@ const rewriter = jsonServer.rewriter({
 
   //物品品类 物品
   'v1/stockmanage/choicegoods': 'choicegoods',
-
-
-
-
-
-
-
-
 
   // 入库操作首页列表
 
@@ -73,9 +63,10 @@ server.use(jsonServer.bodyParser);//抓取body数据使用json-server中间件
 
 server.get(mock+'/login', (req, res) => {
   // console.log(req.query, req.body);//抓取提交过来的query和body
-  let username=req.query.username;
+  console.log(req.query,req.body)
+  let phone = req.query.phone;
   let password=req.query.password;
-  (username === 'aa' && password === 'aa123')?
+  (phone === 'a' && password === '11')?
     res.jsonp({
       "err": 0,
       "msg": "登录成功",

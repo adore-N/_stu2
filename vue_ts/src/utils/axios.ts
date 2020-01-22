@@ -14,7 +14,7 @@ let service: AxiosInstance | any;
 
 service = axios.create({
     baseURL: 'http://localhost:3333/api',
-    timeout: 50000
+    timeout: 50000  // 请求超时
 });
 
 // 拦截器
