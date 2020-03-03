@@ -33,6 +33,8 @@ Vue.use(Switch);
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
+
+
 new Vue({
   router,
   render: h => h(App),

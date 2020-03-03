@@ -1,0 +1,8 @@
+2020-03-02 13:01:03,561 ERROR 11600 nodejs.ClusterClientNoResponseError: client no response in 548441ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (d:\stu\egg-example\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+name: "ClusterClientNoResponseError"
+pid: 11600
+hostname: PTKNCBWNF8D6IIG
+

@@ -1,0 +1,20 @@
+POST http://dummy.restapiexample.com/api/v1/create HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"26"
+}
+
+
+### 
+curl -X POST "http://dummy.restapiexample.com/api/v1/create" -d "Hello World"
+
+###
+GET http://localhost:3333/api/v1/driver HTTP/1.1
+content-type: application/json
+
+###
+GET https://service.58xiaoxiang.cn/admin/business/v1/dimension HTTP/1.1
+content-type: application/json

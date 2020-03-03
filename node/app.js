@@ -23,6 +23,8 @@ let multerObj = multer({storage});
 app.use(multerObj.any()); //指定上传文件的类型
 
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
