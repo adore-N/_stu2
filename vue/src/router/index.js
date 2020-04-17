@@ -22,7 +22,7 @@ export default new Router({
     base: process.env.BABEL_ENV,
     routes: [
         {
-            path: '/',/
+            path: '/',
             name: 'home',
             component: reslove => require(['@/views/home/Home.vue'],reslove)
         },

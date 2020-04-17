@@ -1,13 +1,17 @@
 <template>
     <div class="contain_box">
-        <el-row :gutter="30">
+        <!-- <el-row :gutter="30">
             <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
             <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
             <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
             <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
         </el-row>
-        <Echarts/>
-
+        <Echarts/> -->
+          <div
+          class="color-item"
+          v-for="color in colors" v-dragging="{ item: color, list: colors, group: 'color' }"
+          :key="color.text"
+      >{{color.text}}</div>
     </div>
 </template>
 
@@ -19,6 +23,29 @@
         name: "Home",
         components:{
             Echarts,Header,Leftslider
+        },
+        data(){
+            return {
+                 colors: [{
+            text: "Aquamarine"
+        }, {
+            text: "Hotpink"
+        }, {
+            text: "Gold"
+        }, {
+            text: "Crimson"
+        }, {
+            text: "Blueviolet"
+        }, {
+            text: "Lightblue"
+        }, {
+            text: "Cornflowerblue"
+        }, {
+            text: "Skyblue"
+        }, {
+            text: "Burlywood"
+        }]
+            }
         }
     }
 </script>

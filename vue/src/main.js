@@ -33,6 +33,12 @@ Vue.use(Switch);
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
+// import VueDND from 'awe-dnd'
+
+// Vue.use(VueDND)
+
+
+
 new Vue({
   router,
   render: h => h(App),

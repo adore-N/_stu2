@@ -40,6 +40,10 @@
                 <i class="el-icon-setting"></i>
                 <span slot="title">Interface</span>
             </el-menu-item>
+            <el-menu-item index="/slot">
+                <i class="el-icon-setting"></i>
+                <span slot="title">slot</span>
+            </el-menu-item>
         </el-menu>
     </div>
 </template>
