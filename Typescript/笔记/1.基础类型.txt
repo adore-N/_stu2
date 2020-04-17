@@ -1,0 +1,100 @@
+1.原始类型
+    boolean,number,string,void,undefined,null,symbol,bigint
+
+    空值：表示没有任何类型，当一个函数没有返回值时，其返回值类型时void
+        function userVoid(): void{
+            alert('this is a warning message')
+        }
+    实际上之后null和undefined可以赋值给void
+    const a: void = undefined;
+
+    null:
+    undefined:
+
+    null undefined 是所有类型的子类型，就是说可以把null和undefined赋值给number类型的变量
+
+    symbol: 使用时需要修改配置文件
+
+    ‘lib’: ['es6',....]
+
+    而且symbol的值是唯一不变的
+    Symbol('key1') === Symbol('key1')  //false
+
+2.其他常见类型
+    any: 不清楚类型的变量指定一个类型
+    unknown: 是对any类型对应的安全类型，相比更加的严格，unknown类型的值执行大多数操作前，需要进行某种形式的检查
+
+    never: 表示那些永不存在的值的类型，是任何类型的子类型
+           使用场景： 
+            // 抛出异常的函数永远不会有返回值
+            function error(message: string): never {
+                throw new Error(message);
+            }
+
+            // 空数组，而且永远是空的
+            const empty: never[] = []
+
+3.数组：
+    使用泛型定义
+        const list: Array<number> = [1,2,3]
+    元素类型后面接上[]
+        const list: number[] = [1,2,3]
+
+4.元组：
+    表示一个已知元素数量和类型的数组，各元素类型不必相同
+
+    类型多出或者类型不一致，就会报错
+
+    元组越界：定义好的元组，即使添加新的元素，在访问添加的元素，也会报错
+
+5.object: 非原始类型
+
+6.枚举： 用于声明一组的常数，当一个变量有几种可能的取值时，可以将它定义为枚举类型
+
+    数字枚举：
+        enum Direction {
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
+        console.log(Direction.Up === 0); // true
+        console.log(Direction.Down === 1); // true
+        console.log(Direction.Left === 2); // true
+        console.log(Direction.Right === 3); // true
+
+    字符串枚举：
+        enum Direction {
+            Up = 'Up',
+            Down = 'Down',
+            Left = 'Left',
+            Right = 'Right'
+        }
+
+        console.log(Direction['Right'], Direction.Up); // Right Up
+
+    异构枚举： 混合 数字 + 字符串 
+
+    反向映射：
+        enum Direction {
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
+        console.log(Direction[0]); // Up
+
+
+
+
+
+
+
+
+
+
+
+
+
