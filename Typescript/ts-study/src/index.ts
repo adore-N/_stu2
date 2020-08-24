@@ -9,3 +9,26 @@ function greeter(person: string) {
 
 const user = 'Jane User'
 
+function swap<T>(parm: T): T{
+    return parm;
+}
+
+swap(11)
+
+function fn<T>(parm: Array<T>){
+    console.log(parm.length);
+    return parm;
+}
+
+fn([1,2,3])
+
+function getvalue<T extends Object, U extends keyof  T>(obj: T, key: U) {
+    return obj[key]
+}
+
+const a = {
+    name: '11',
+    age: 12
+}
+
+getvalue(a,"age")

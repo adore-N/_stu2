@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <!-- <my-button>默认按钮</my-button>
+    <my-button>默认按钮</my-button>
     <my-button type='primary'>正常</my-button>
     <my-button type='danger'>失败</my-button>
-    <my-button type='success'>成功</my-button> -->
-    <!-- <my-button type='失败' disabled>默认按钮</my-button> -->
+    <my-button type='success'>成功</my-button>
+    <!-- <my-button type='失败' disabled>默认按钮</my-button>
     <hr>
-    <!-- <my-button size='small' type='success'>成功</my-button>
+    <my-button size='small' type='success'>成功</my-button>
     <my-button size='large' type='success'>成功</my-button>
     <my-button size='medium' type='success'>成功</my-button>
     <hr>
@@ -15,7 +15,7 @@
     <hr>
     <my-button @click="getData">成功</my-button> -->
 
-      <div style='display:flex;flex:2'>
+      <!-- <div style='display:flex;flex:2'>
         <div style='flex:1'>
             <h1>Hello Ztree</h1>
             <div style='width:280px;' v-if='ztreeDataSource.length>0'>
@@ -26,14 +26,23 @@
 
         <div style="width:280px" v-if='ztreeDataSource.length > 0'>
           <my-tree
-            :dataList.sync='ztreeDataSource' :is-open='true' :is-check='true'
+            :dataList.sync='ztreeDataSource' :func='nodeClick' :is-open='true' :is-check='true'
           ></my-tree>
-        </div>
+        </div> -->
         
+    <div>
+      <my-page :pages="50" :jump="cb" :groups="5" class="laypage"></my-page>
+      <input type="text" v-model="page">
+      <!-- <my-page  :pages="50" :jump="cb" :groups="5" skip="skip" class="laypage"></my-page>
+      <my-page  :pages="50" :jump="cb" :groups="5" :skin="skin" class="laypage"></my-page>
+      <my-page  :pages="50" :jump="cb" :groups="5" :first="first" :last="last" class="laypage"></my-page>
+      <my-page  :pages="50" :jump="cb" :groups="5" :prev="prev" :next="next" class="laypage"></my-page>
+      <my-page  :pages="50" :jump="cb" :groups="0" class="laypage"></my-page> -->
+  </div>
 
-    </div>
+    <!-- </div> -->
 
-    <hr>
+    <!-- <hr> -->
     
   </div>
 </template>
@@ -46,54 +55,22 @@ export default {
       dataList:[],
       treeDeepCopy:[],
       parentNodeModel:[],//当前点击节点父亲对象
-      nodeModel:null, // 当前点击节点对象
+      nodeModel:null, // 当前点击节点对象,
+
+        page: '1',
+        skip: true,
+        skin: '#4078c0',
+        first: false,
+        last: false,
+        prev: false,
+        next: false
     }
   },
   methods:{
-    navigateClick:function(index,item){
-        // 递归
-        var recurFunc = (data,list) => {
-            data.forEach((i)=>{
-                if(i.id==item.id){
-                  i.clickNode = true;
-                  this.nodeModel = i;
-                  this.parentNodeModel = data;
-                }else {
-                  i.clickNode = false;
-                }
-                if(i.children){
-                   recurFunc(i.children,i);
-                }
-            });
-        }
-        recurFunc(this.treeDeepCopy, this.treeDeepCopy);
-        
-        
-        // 导航
-        var self = this;
-        for(var i=0;i<self.dataList.length;i++){
-            if(index == i){
-                self.dataList[i].clickNode = true
-            }else{
-                self.dataList[i].clickNode = false
-            }
-        }
-        self.dataList.splice(index+1,self.dataList.length - (index+1))
-       this.ztreeDataSource = this.treeDeepCopy
-    },
-    findById:function(data,parentId) {
-        var vm =this;
-        for(var i = 0;i<data.length;i++){
-            if (parentId == data[i].id){
-                vm.dataList.push(data[i]);
-                vm.findById(vm.ztreeDataSource, data[i].parentId)
-                return data[i]
-            }
-            if (data[i].hasOwnProperty('children')){
-                vm.findById(data[i].children,parentId)
-            }
-        }
-    },
+    cb(page) {
+        this.page = page
+        console.log(this.page)
+      },
     // 点击节点
     nodeClick:function(m, parent, trees){
        this.treeDeepCopy = trees;
@@ -107,54 +84,9 @@ export default {
        this.findById(this.ztreeDataSource,m.parentId)
        this.dataList= this.dataList.reverse();
        this.dataList.push(m);
-    },
-    // 右击事件
-    contextmenuClick:function(m){
-       console.log(m);
-       console.log(event.target);
-       console.log("触发了自定义的contextmenuClick事件");
-       alert("触发了自定义");
-    },
-    // 点击展开收起
-    expandClick:function(m){
-       console.log(JSON.parse(JSON.stringify(m)));
-       // 点击异步加载
-       if(m.isExpand) {
-          // 动态加载子节点, 模拟ajax请求数据
-         // 请注意 id 不能重复哦。
-         if(m.hasOwnProperty("children")){
-            
-            m.loadNode = 1; // 正在加载节点
-            setTimeout(()=>{
-              m.loadNode = 2; // 节点加载完毕
-              m.isFolder = !m.isFolder; 
-              m.children.push({
-                  id:+new Date(),
-                  parentId:m.id,
-                  name:"动态加载节点1",
-                  path:"",
-                  clickNode:false,
-                  isFolder:false,
-                  isExpand:false,
-                  hover:false,
-                  loadNode:0,
-                  children:[{
-                        id:+new Date()+1,
-                        parentId:m.id,
-                        name:"动态加载末节点",
-                        path:"",
-                        clickNode:false,
-                        isExpand:false,
-                        isFolder:false,
-                        hover:false,
-                        loadNode:0
-                  }]
-              })
-            },1000);
-         }
-       }
     }
   },
+
   mounted (){
       // 异步获取数据操作
       setTimeout(()=>{ 
@@ -253,5 +185,7 @@ export default {
 </script>
 
 <style>
-
+  .laypage {
+    margin: 20px 0;
+  }
 </style>

@@ -6,11 +6,11 @@ interface User {
 
 const getUserName = (user: User) => user.name;
 
-// class Car {
-//     protected run() {
-//         console.log('启动...')
-//     }
-// }
+class Car {
+    protected run() {
+        console.log('启动...')
+    }
+}
 
 // class GTR extends Car {
 //     init() {

@@ -12,6 +12,7 @@
           v-for="color in colors" v-dragging="{ item: color, list: colors, group: 'color' }"
           :key="color.text"
       >{{color.text}}</div>
+      <A></A>
     </div>
 </template>
 
@@ -19,10 +20,11 @@
     import Echarts from "../../components/Echarts";
     import Header from "../../components/Header";
     import Leftslider from "../../components/Leftslider";
+    import A from '../animate/animate';
     export default {
         name: "Home",
         components:{
-            Echarts,Header,Leftslider
+            Echarts,Header,Leftslider,A
         },
         data(){
             return {

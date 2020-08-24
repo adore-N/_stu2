@@ -1,13 +1,13 @@
 <template>
   <div id="app">
 <!--     <router-view/>-->
-      <Header/>
-      <div class="contain">
-          <div class="contain_b">
+      <!-- <Header/> -->
+      <!-- <div class="contain">
+          <div class="contain_b"> -->
               <router-view></router-view>
-          </div>
-      </div>
-      <Leftslider/>
+          <!-- </div>
+      </div> -->
+      <!-- <Leftslider/> -->
   </div>
 </template>
 

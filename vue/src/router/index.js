@@ -24,7 +24,12 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: reslove => require(['@/views/home/Home.vue'],reslove)
+            component: reslove => require(['@/views/animate/animate3.vue'],reslove)
+        },
+        {
+            path: '/music',
+            name: 'music',
+            component: reslove => require(['@/views/music.vue'],reslove)
         },
         {
             path: '/login',

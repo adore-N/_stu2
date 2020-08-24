@@ -9,6 +9,7 @@
                 :nodes.sync='treeDataSource.length'
                 root='0'
                 :trees='treeDataSource'
+                :callback='func'
                 ></ztree-item>
             </ul>
         </div>
@@ -38,6 +39,11 @@ export default {
          type: Boolean,
          default: false
       },
+      // 
+      func: {
+          type: Function,
+          default: null
+      }
      
    },
    watch: {
@@ -125,6 +131,10 @@ export default {
             trees: {
                type: Array,
                default: []
+            },
+            // 回调函数
+            callback: {
+                type: Function
             }
          },
          computed: {
@@ -207,7 +217,7 @@ export default {
 		                        		recurFuncParent(this.trees, i);
 									}else if(i.id == m.id && i.parentId==0) {
 										i.ckbool = m.ckbool;
-										isFindRootBool = true;
+										// isFindRootBool = true;
 									}else {
 										recurFuncParent(i.children, i);
 									}
@@ -261,6 +271,7 @@ export default {
                   root='1'
                   :nodes='model.children.length'
                   :trees='trees'
+                  :callback='callback'
                   ></ztree-item>
                </ul>
             </li>`

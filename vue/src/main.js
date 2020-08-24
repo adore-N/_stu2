@@ -4,6 +4,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 import router from './router/index'
+import 'animate.css'
 
 // elementUI 按需引入
 import {Button,Menu,Submenu,MenuItem,Row,Col,Icon,MenuItemGroup,Form,FormItem,Input,Radio,Checkbox,Select,Option,RadioGroup,DatePicker,CheckboxGroup,TimePicker,Switch} from 'element-ui';
