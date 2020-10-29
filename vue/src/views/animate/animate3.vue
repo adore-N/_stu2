@@ -12,17 +12,19 @@
               <p>{{item.name}}</p>
           </div>
         </div>
+        <h1>{{aaa}}</h1>
     </div>
 </template>
 
 <script>
+import {aaa} from './utils'
     export default {
         name: "Home",
         components:{
             
         },
         mounted() {
-            
+            console.log(111)
         },
         data(){
             return {

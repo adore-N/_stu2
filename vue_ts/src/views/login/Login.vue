@@ -43,7 +43,7 @@
 
 <script lang="ts">
     import {Component, Emit, Vue} from 'vue-property-decorator';
-    import { LoginData } from '@/dataTypes/index.ts'
+    import  {LoginData}  from '../../dataTypes/index'
 
 
     @Component({
